@@ -10,7 +10,7 @@ public class RacketModel {
         this.x = x;
         this.y = y;
 
-        this.w = 9;
+        this.w = 20;
         this.h = 90;
     }
 
@@ -32,8 +32,5 @@ public class RacketModel {
 
     public int getH(){
         return h;
-    }
-    public Color getColor(){
-        return color;
     }
 }

@@ -3,13 +3,17 @@ package dev.Sasha.client.view;
 import dev.Sasha.client.model.BallModel;
 import dev.Sasha.client.model.RacketModel;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class GamePanelView extends JPanel {
     GameView gameView;
-//    private MouseInputs mouseInputs;
-//    private KeyboardInputs keyboardInputs;
+    private BufferedImage backgroundImg;
     private Color color = new Color(150, 20, 90);
 
     public GamePanelView(GameView gameView) {
@@ -24,6 +28,11 @@ public class GamePanelView extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        try {
+            drawField(g);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         RacketModel racketLeft = gameView.getGameModel().getTennisCourt().getRacketLeft();
         RacketModel racketRight = gameView.getGameModel().getTennisCourt().getRacketRight();
 
@@ -35,28 +44,26 @@ public class GamePanelView extends JPanel {
 
         gameView.getTennisCourtView().drawRacket(g, racketRight.getX(), racketRight.getY(), racketRight.getW(), racketRight.getH());
 
-        drawField(g);
+
 
         drawScore(g);
 
         g.setColor(color);
     }
 
-    public void drawField(Graphics g){
-        setBackground(Color.DARK_GRAY);
+    public void drawField(Graphics g) throws IOException {
+        backgroundImg = ImageIO.read(new File("C:\\Users\\darkq\\Desktop\\ahaha\\tennisSocket\\ClientTennis\\res\\courtBG.png"));
+        g.drawImage(backgroundImg,0,0,1920,1080,null);
+
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        float[] dash = { 10.0f };
-        g2d.setStroke(new BasicStroke(3.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash, 0.0f));
-        g2d.setColor(Color.GRAY);
-        g2d.drawLine(getWidth() / 2, 0, getWidth() / 2, getHeight());
     }
 
     public void drawScore(Graphics g){
         g.setColor(Color.black);
-        g.setFont(new Font("Arial", Font.BOLD, 40));
-        g.drawString(" " + gameView.getGameModel().getTennisCourt().getScoreLeft(), 320, 40);
-        g.drawString(" " + gameView.getGameModel().getTennisCourt().getScoreRight(), 420, 40);
+        g.setFont(new Font("Arial", Font.BOLD, 70));
+        g.drawString(" " + gameView.getGameModel().getTennisCourt().getScoreLeft(), 740, 1030);
+        g.drawString(" " + gameView.getGameModel().getTennisCourt().getScoreRight(), 1100, 1030);
     }
 
     public GameView getGameView() {

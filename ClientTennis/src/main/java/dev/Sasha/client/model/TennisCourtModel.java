@@ -15,11 +15,11 @@ public class TennisCourtModel {
 
     public TennisCourtModel(GameModel gameModel){
         this.gameModel = gameModel;
-        spawnBall(377, 260);
+        spawnBall(940, 500);
 //        spawnBall(250, 80);
 
-        racketLeft = new RacketModel(50, 150);
-        racketRight = new RacketModel(734, 150);
+        racketLeft = new RacketModel(50, 500);
+        racketRight = new RacketModel(1854, 500);
     }
 
     public void setRacketPosLeft(int y) {
@@ -30,10 +30,10 @@ public class TennisCourtModel {
     }
 
     public void update(){
-        if (scoreLeft >= 3){
+        if (scoreLeft >= 10){
             gameOver(1);
         }
-        if (scoreRight >= 3){
+        if (scoreRight >= 10){
             gameOver(2);
         }
     }
@@ -81,9 +81,8 @@ public class TennisCourtModel {
 
     public void respawnBalls(){
         for (BallModel ball : balls){
-            int randomInt = random.nextInt(2);
-            ball.setX(377);
-            ball.setY(260);
+            ball.setX(940);
+            ball.setY(500);
         }
     }
 

@@ -34,8 +34,16 @@ public class KeyboardInputs implements KeyListener {
 
                 break;
             case KeyEvent.VK_S:
-                if (gamePanel.getGameView().getGameModel().getTennisCourt().getRacketLeft().getY() < 460)
-                    gamePanel.getGameView().getGameModel().getTennisCourt().setRacketPosLeft(gamePanel.getGameView().getGameModel().getTennisCourt().getRacketLeft().getY()+100);
+                if (gamePanel.getGameView().getGameModel().getTennisCourt().getRacketLeft().getY() < 900)
+                    gamePanel.getGameView().getGameModel().getTennisCourt().setRacketPosLeft(gamePanel.getGameView().getGameModel().getTennisCourt().getRacketLeft().getY()+110);
+                break;
+            case KeyEvent.VK_NUMPAD8:
+                if (gamePanel.getGameView().getGameModel().getTennisCourt().getRacketRight().getY() > 40)
+                    gamePanel.getGameView().getGameModel().getTennisCourt().setRacketPosRight(gamePanel.getGameView().getGameModel().getTennisCourt().getRacketRight().getY()-20);
+                break;
+            case KeyEvent.VK_NUMPAD5:
+                if (gamePanel.getGameView().getGameModel().getTennisCourt().getRacketRight().getY() < 900)
+                    gamePanel.getGameView().getGameModel().getTennisCourt().setRacketPosRight(gamePanel.getGameView().getGameModel().getTennisCourt().getRacketRight().getY()+110);
                 break;
         }
 

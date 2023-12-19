@@ -1,13 +1,11 @@
-import org.example.client.model.BallModel;
+import dev.Sasha.client.model.BallModel;
 import org.example.client.model.GameModel;
-import org.example.client.test.Ball;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.junit.jupiter.api.Assertions.*;
 
-
-class TestGame {
+class TestsGame {
     @Test
     public void RacketTest() {
         GameModel gameModel = new GameModel();
@@ -21,7 +19,7 @@ class TestGame {
         GameModel gameModel = new GameModel();
         gameModel.changePlaying(true);
         for (BallModel ball : gameModel.getTennisCourt().getBalls()) {
-            ball.setX(-200);
+            ball.setX(-1000);
         }
         Thread.sleep(5);
         int result = gameModel.getTennisCourt().getScoreRight();

@@ -32,7 +32,7 @@ public class ClientUDP {
             int serverPort = Integer.parseInt(args[1]);
             DatagramSocket socket = new DatagramSocket();
 
-            System.out.print("Enter your nickname: ");
+            System.out.print("write your nickname: ");
 
             Scanner scanner = new Scanner(System.in);
             nickname = scanner.nextLine();
@@ -103,7 +103,7 @@ public class ClientUDP {
             while (true){
                 try {
                     sendPacket(socket, serverAddress, serverPort, nickname, roomNumber, tennisCourtModel);
-                    Thread.sleep(200);
+                    Thread.sleep(20);
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }

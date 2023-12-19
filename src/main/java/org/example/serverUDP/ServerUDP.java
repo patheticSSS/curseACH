@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 public class ServerUDP {
-    private static final int PORT = 8080;
+    private static final int PORT = 8000;
     private DatagramSocket socket;
     private boolean running = true;
     private HashMap<String, String> clientRooms;  // Хранит информацию о том, в какой комнате находится каждый клиент

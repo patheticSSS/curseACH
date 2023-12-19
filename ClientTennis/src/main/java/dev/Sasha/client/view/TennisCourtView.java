@@ -15,7 +15,7 @@ public class TennisCourtView {
     }
 
     public void drawRacket(Graphics g, int x, int y, int w, int h) {
-        g.setColor(Color.BLACK);
+        g.setColor(Color.RED);
 
         Graphics2D g2d = (Graphics2D) g;
         g2d.setStroke(new BasicStroke(w));

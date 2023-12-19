@@ -11,3 +11,6 @@ public class Main {
         Controller controller = new Controller(gameView.getGamePanelView());
     }
 }
+
+// java serverUDP.java 8000
+// java -jar .\dev.Sasha-0.1.0.jar localhost 8000
